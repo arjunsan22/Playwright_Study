@@ -13,9 +13,10 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests',
+  // testDir: './tests',// only in tests folder
+  testDir:'.',// Project root (playwright_study) മുതൽ tests അന്വേഷിക്കുക.
 
-  testMatch:['tests/test_Suite_ex_login.test.ts'],
+  testMatch:['fixtures/myFixtest.test.ts'],
   
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -55,10 +56,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
     // {
     //   name: 'webkit',

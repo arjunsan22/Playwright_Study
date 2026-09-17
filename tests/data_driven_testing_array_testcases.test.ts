@@ -4,16 +4,36 @@ import { LoginPage } from "../pages/LoginPage"
 test.describe("Data-Driven Login Tests",()=>{
 
 const loginCases = [
-    { email: 'arjun4@gmail.com', password: 'arjun', expected: 'success' },
-    { email: 'arjun4@gmail.com', password: 'wrongpassword', expected: 'error' },
-    { email: 'wronguser@gmail.com', password: 'arjun', expected: 'error' },
-    { email: '', password: '', expected: 'required' }
+    {
+        name: 'Valid Login',
+        email: 'arjun4@gmail.com',
+        password: 'arjun',
+        expected: 'success'
+    },
+    {
+        name: 'Invalid Password',
+        email: 'arjun4@gmail.com',
+        password: 'wrongpassword',
+        expected: 'error'
+    },
+    {
+        name: 'Invalid Email',
+        email: 'wronguser@gmail.com',
+        password: 'arjun',
+        expected: 'error'
+    },
+    {
+        name: 'Empty Login',
+        email: '',
+        password: '',
+        expected: 'required'
+    }
 ];
 
 
 for (const testCase of loginCases){
 
-    test(`Login test for: ${testCase.expected}`, async({page})=>{
+    test(`Login test for: ${testCase.name}`, async({page})=>{
         
         const loginPage = new LoginPage(page);
         await page.goto("https://ecommerce-playground.lambdatest.io/index.php?route=account/login")
@@ -36,3 +56,4 @@ for (const testCase of loginCases){
 }
 
 })
+
