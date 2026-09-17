@@ -15,7 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
 
-  // testMatch:['tests/alerts.test.ts'],
+  testMatch:['tests/test_Suite_ex_login.test.ts'],
   
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -39,10 +39,10 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
     headless:false,
-    // screenshot:"on",
-    screenshot:"only-on-failure",
-    // video:"on",
-    video:"retain-on-failure",
+    screenshot:"on",
+    // screenshot:"only-on-failure",
+    video:"on",
+    // video:"retain-on-failure",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
